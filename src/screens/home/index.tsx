@@ -114,16 +114,16 @@ export default function Home() {
 
     // @ts-ignore: Unused parameter 'e'
     const startDrawing = (e: React.MouseEvent<HTMLCanvasElement>) => {
-        console.log(e);
-        const canvas = canvasRef.current;
-        if (canvas) {
-            canvas.style.background = 'black';
-            const ctx = canvas.getContext('2d');
-            if (ctx) {
-                ctx.beginPath();
-                // Use e directly without any changes
-                ctx.moveTo(e.nativeEvent.offsetX, e.nativeEvent.offsetY);
-                setIsDrawing(true);
+        if (e) {
+            const canvas = canvasRef.current;
+            if (canvas) {
+                canvas.style.background = 'black';
+                const ctx = canvas.getContext('2d');
+                if (ctx) {
+                    ctx.beginPath();
+                    ctx.moveTo(e.nativeEvent.offsetX, e.nativeEvent.offsetY);
+                    setIsDrawing(true);
+                }
             }
         }
     };
@@ -132,17 +132,19 @@ export default function Home() {
         if (!isDrawing) {
             return;
         }
-        const canvas = canvasRef.current;
-        if (canvas) {
-            const ctx = canvas.getContext('2d');
-            if (ctx) {
-                ctx.strokeStyle = color;
-                // Use e directly without any changes
-                ctx.lineTo(e.nativeEvent.offsetX, e.nativeEvent.offsetY);
-                ctx.stroke();
+        if (e) {
+            const canvas = canvasRef.current;
+            if (canvas) {
+                const ctx = canvas.getContext('2d');
+                if (ctx) {
+                    ctx.strokeStyle = color;
+                    ctx.lineTo(e.nativeEvent.offsetX, e.nativeEvent.offsetY);
+                    ctx.stroke();
+                }
             }
         }
     };
+    
     
     const stopDrawing = () => {
         setIsDrawing(false);
