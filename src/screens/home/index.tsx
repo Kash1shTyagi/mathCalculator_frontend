@@ -112,7 +112,6 @@ export default function Home() {
         }
     };
 
-    // @ts-ignore: Unused parameter 'e'
     const startDrawing = (e: React.MouseEvent<HTMLCanvasElement>) => {
         if (e) {
             const canvas = canvasRef.current;
