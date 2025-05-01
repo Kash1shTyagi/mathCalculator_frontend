@@ -111,9 +111,10 @@ export default function Home() {
             }
         }
     };
-    
+
     // @ts-ignore: Unused parameter 'e'
     const startDrawing = (e: React.MouseEvent<HTMLCanvasElement>) => {
+        console.log(e);
         const canvas = canvasRef.current;
         if (canvas) {
             canvas.style.background = 'black';
