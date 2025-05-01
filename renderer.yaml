@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: react-frontend
+    env: static
+    staticPublishPath: build
+    buildCommand: npm install && npm run build
