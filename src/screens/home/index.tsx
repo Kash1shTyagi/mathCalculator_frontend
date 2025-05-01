@@ -146,6 +146,7 @@ export default function Home() {
             const ctx = canvas.getContext('2d');
             if (ctx) {
                 ctx.beginPath();
+                // Use e directly without any changes
                 ctx.moveTo(e.nativeEvent.offsetX, e.nativeEvent.offsetY);
                 setIsDrawing(true);
             }
@@ -161,6 +162,7 @@ export default function Home() {
             const ctx = canvas.getContext('2d');
             if (ctx) {
                 ctx.strokeStyle = color;
+                // Use e directly without any changes
                 ctx.lineTo(e.nativeEvent.offsetX, e.nativeEvent.offsetY);
                 ctx.stroke();
             }
